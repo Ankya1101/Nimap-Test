@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Person>
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success alert-dismissable fade show" role="alert">
+        <strong>@ViewBag.SuccessMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+<p>
+    <a href="@Url.Action("Create", "Person")" class="btn btn-primary">Create New Category</a>
+</p>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">PersonId</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">City</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var person in Model)
+        {
+            <tr>
+                <td>@person.Id</td>
+                <td>@person.Name</td>
+                <td>@person.Address</td>
+                <td>@person.City</td>
+                <td>@person.Phone</td>
+                <td>
+                    <a href="@Url.Action("Edit","Person", new {id=person.Id})" class="btn btn-info">Edit</a>
+                    <a href="@Url.Action("Delete","Person", new {id=person.Id})" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+        
+</tbody>
+</table>
+
+        

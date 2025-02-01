@@ -1,0 +1,40 @@
+﻿@model Category
+@{
+    ViewBag.Title = "Edit";
+}
+@if (ViewBag.Message != null)
+{
+    <p class="alert alert-success" role="alert">
+        @ViewBag.Message
+    </p>
+}
+
+<div class="row">
+    <div class="col-lg-9 mx-auto rounded border p-4">
+        <h2 class="text-center mb-3">Edit Category</h2>
+
+        <form method="post">
+            <input type="hidden" asp-for="CategoryId" />
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Category Name:</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="CategoryName" />
+                    <span asp-validation-for="CategoryName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12 text-center">
+                    <button class="btn btn-success">Edit</button>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12 text-center">
+                    <a href="@Url.Action("Index", "Category")" class="btn btn-secondary mt-3">Back to List</a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+
+</div>

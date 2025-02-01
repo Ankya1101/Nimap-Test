@@ -1,0 +1,57 @@
+﻿@model Nimap_Test.Models.Person
+
+@{
+    ViewBag.Title = "Delete Confirmation";
+}
+
+<h2>Delete Confirmation</h2>
+
+<p>Are you sure you want to delete the following employee?</p>
+
+<form method="post" asp-action="Delete" asp-route-id="@Model.Id">
+    <!-- Employee Name -->
+    <div class="row mb-3">
+        <label class="col-sm-4 col-form-label">Employee Name:</label>
+        <div class="col-sm-8">
+            <p>@Model.Name</p> <!-- Display employee name -->
+        </div>
+    </div>
+
+    <!-- Employee Salary -->
+    <div class="row mb-3">
+        <label class="col-sm-4 col-form-label">Employee Salary:</label>
+        <div class="col-sm-8">
+            <p>@Model.Address</p> <!-- Display employee salary -->
+        </div>
+    </div>
+
+    <!-- Employee City -->
+    <div class="row mb-3">
+        <label class="col-sm-4 col-form-label">Employee City:</label>
+        <div class="col-sm-8">
+            <p>@Model.City</p> <!-- Display employee city -->
+        </div>
+    </div>
+
+    <!-- Employee Phone -->
+    <div class="row mb-3">
+        <label class="col-sm-4 col-form-label">Employee Phone:</label>
+        <div class="col-sm-8">
+            <p class="mb-0">@Model.Phone</p> <!-- Display employee phone -->
+        </div>
+    </div>
+
+    <!-- Confirmation Buttons -->
+    <div class="row mb-3">
+        <div class="col-12 text-center">
+            <button type="submit" class="btn btn-danger">Confirm Delete</button>
+        </div>
+    </div>
+</form>
+
+<!-- Cancel Button to Go Back -->
+<div class="row mb-3">
+    <div class="col-12 text-center">
+        <a href="@Url.Action("Index")" class="btn btn-secondary">Cancel</a>
+    </div>
+</div>

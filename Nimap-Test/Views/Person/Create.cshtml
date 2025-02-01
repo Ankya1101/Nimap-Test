@@ -1,0 +1,68 @@
+﻿@model Nimap_Test.Models.Person
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+@if (ViewBag.Message != null)
+{
+    <p class="alert alert-success" role="alert">
+        @ViewBag.Message
+    </p>
+}
+<div class="row">
+    <div class="col-lg-9 mx-auto rounded border p-4">
+        <h2 class="text-center mb-3">Create New Category</h2>
+
+        @if (ViewBag.SuccessMessage != null)
+        {
+            <div class="alert alert-success alert-dismissable fade show" role="alert">
+                <strong>@ViewBag.SuccessMessage</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+
+        <form method="post">
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Name*</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Address*</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Address" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+            </div>
+
+    
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">City*</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="City" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Phone*</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Phone" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

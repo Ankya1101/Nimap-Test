@@ -1,0 +1,35 @@
+﻿@model Product
+
+@{
+    ViewBag.Title = "Delete Confirmation";
+}
+
+<h2>Delete Confirmation</h2>
+
+<p>Are you sure you want to delete the following Product?</p>
+@* asp-route-id="@Model.ProductId" *@
+<form method="post" asp-action="DeleteTest" asp-route-id="@Model.ProductId">
+    <div class="row mb-3">
+        <label class="col-sm-4 col-form-label">Product Name:</label>
+        <div class="col-sm-8">
+            <p>@Model.ProductName</p> 
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-4 col-form-label">Category:</label>
+        <div class="col-sm-8">
+            <p>@Model.Category.CategoryName</p>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12 text-center">
+            <button type="submit" class="btn btn-danger">Confirm Delete</button>
+        </div>
+    </div>
+</form>
+<div class="row mb-3">
+    <div class="col-12 text-center">
+        <a href="@Url.Action("Index")" class="btn btn-secondary">Cancel</a>
+    </div>
+</div>
+

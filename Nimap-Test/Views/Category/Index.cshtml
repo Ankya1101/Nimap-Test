@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Nimap_Test.Models.Category>
+
+@{
+    ViewBag.Title = "Category List";
+}
+<h2>Product List</h2>
+
+@if(ViewBag.Message != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.Message
+    </div>
+}
+<p>
+    <a href="@Url.Action("Create", "Category")" class="btn btn-primary">Create New</a>
+</p>
+<table class="table"> 
+    <thead>
+    <tr>
+        <td>CategoryId</td>
+        <td>CategoryName</td>
+        <td>Action</td>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.CategoryId</td>
+                 <td>@product.CategoryName</td>
+                <td>
+                    <a href="@Url.Action("Edit","Category", new {id=product.CategoryId})" class="btn btn-info">Edit</a>
+                    <a href="@Url.Action("Delete","Category", new {id=product.CategoryId})" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
