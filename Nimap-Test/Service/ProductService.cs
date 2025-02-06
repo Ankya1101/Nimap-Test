@@ -15,6 +15,12 @@ namespace Nimap_Test.Service
         }
         public async Task<bool> Create(Product p)
         {
+            var existingProduct = await _context.Products.FirstOrDefaultAsync(prod => prod.ProductName == p.ProductName && prod.CategoryId == p.CategoryId);
+
+            if (existingProduct != null)
+            {
+                return false; 
+            }
             _context.Products.Add(p);
             _context.SaveChanges();
             return true;

@@ -28,6 +28,13 @@ namespace Nimap_Test.Controllers
         {
             if (ModelState.IsValid || !string.IsNullOrEmpty(category.CategoryName))
             {
+                var existingCategory = await _context.Categories
+                       .FirstOrDefaultAsync(cat => cat.CategoryName == category.CategoryName);
+                if (existingCategory != null)
+                {
+
+                    return View(); 
+                }
                 _context.Categories.Add(category);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");

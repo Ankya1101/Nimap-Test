@@ -74,9 +74,14 @@ namespace Nimap_Test.Controllers
         {
             if ((ModelState.IsValid) ||( !(string.IsNullOrEmpty(product.ProductName) && product.CategoryId > 0)))
             {
-                await _service.Create(product);
-                TempData["Message"] = "Product created successfully!";
-                return RedirectToAction("Index");
+                bool check = await _service.Create(product);
+                if(check)
+                {
+                    TempData["Message"] = "Product created successfully!";
+                    return RedirectToAction("Index");
+                }
+                TempData["Error"] = "Product is already available";
+                return View();
             }
 
             //ViewBag.Categories = new SelectList(_context.Categories, "CategoryId", "CategoryName");
